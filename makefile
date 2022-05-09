@@ -1,4 +1,4 @@
-all: client server
+all: client server test
 
 zip:
 	zip archive.zip makefile *.c *.h *.md

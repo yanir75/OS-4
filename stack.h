@@ -5,6 +5,8 @@
 #include <signal.h>
 #include <stdlib.h>
 #include <math.h>
+#define me_free free
+#define me_malloc malloc
 #define me_calloc calloc
 #define SIZE 128
 typedef char chunk[SIZE];
@@ -24,7 +26,7 @@ void me_init()
 	}
 }
 
-void *me_malloc(size_t how_much)
+void *malloc(size_t how_much)
 {
 	int sum;
 	if (how_much % SIZE == 0)
@@ -112,7 +114,7 @@ void *calloc(unsigned long num, unsigned long size_of_1)
 	}
 }
 
-void me_free(void *poi)
+void free(void *poi)
 {
 	int i = ((char *)(poi) - (char *)(chunks)) / SIZE;
 	int j = 1;
